@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.SoChiTieuFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/blur_yellow"
+        tools:ignore="UselessParent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/s_chi_ti_u"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+<!--        <TextView-->
+<!--            android:layout_width="37dp"-->
+<!--            android:layout_height="28dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:text="Số dư"-->
+<!--            android:textColor="@color/gray"-->
+<!--            android:textSize="18sp" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/txtSoDu"-->
+<!--            android:text="20000"-->
+<!--            android:textSize="24sp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textStyle="bold"/>-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayoutCT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_topleft_topright"
+            app:tabBackground="@drawable/bg_button"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/color_item_tab"
+            tools:ignore="SpeakableTextPresentCheck" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/framelayoutCT"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+</FrameLayout>

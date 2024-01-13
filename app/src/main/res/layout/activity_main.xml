@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/blur_yellow">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frame_layout"/>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/bottomNagivationView"
+            app:menu="@menu/bottombar_menu"
+            app:itemIconTint="@color/color_item_bottom"
+            app:itemTextColor="@color/color_item_bottom"
+            app:itemBackground="@drawable/bg_button"
+            android:layout_gravity="bottom"
+            app:labelVisibilityMode="unlabeled"
+            android:background="@drawable/bg_corners"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

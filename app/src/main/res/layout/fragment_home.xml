@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment"
+    android:background="@color/blur_yellow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_borders"
+            android:backgroundTint="@color/white"
+            android:layout_margin="20dp"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/v_c_a_t_i"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvTTC"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/_182_000"
+                android:textColor="#689F38"
+                android:textSize="24sp"
+                android:textStyle="normal"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/txtVND"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/vnd"
+                android:textColor="#689F38"
+                android:textSize="24sp"
+                android:textStyle="normal"
+                tools:ignore="TextSizeCheck" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/b_o_c_o_h_ng_th_ng"
+            android:textColor="#0277BD"
+            android:textSize="18sp" />
+
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chartTC"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center_horizontal"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:text="@string/giao_d_ch_g_n_y"-->
+<!--            android:textColor="#0277BD"-->
+<!--            android:textSize="18sp" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChiTieu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"/>
+    </LinearLayout>
+
+</FrameLayout>

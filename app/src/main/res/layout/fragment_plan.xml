@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PlanFragment"
+    android:orientation="vertical"
+    android:background="@color/blur_yellow">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/k_ho_ch"
+                android:textStyle="bold"
+                android:textSize="35sp"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageButton
+                android:id="@+id/btnAddPlan"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_button"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_add"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:importantForAccessibility="no" />
+    </LinearLayout>
+    </LinearLayout>
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/planChart"
+        android:layout_gravity="center_horizontal"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_topleft_topright"
+        app:tabBackground="@drawable/bg_button"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/color_item_tab"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvKeHoach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+</LinearLayout>
