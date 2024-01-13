@@ -1,0 +1,2 @@
+Cái bug ở đây là CSDL của cái ThuNhap nó chỉ có thêm được 1 hàng thôi dù cho có dùng Autoincrement , tức là có vài vấn đề khi cái ThuNhap.sql
+nó không thêm được các hàng CSDL mới như của ChiTieu.sql xong mấy cái sự kiện binding.tvTienVao.setText  nó cũng k hiển thị ra màn luôn.. TT
