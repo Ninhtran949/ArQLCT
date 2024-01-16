@@ -16,16 +16,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white">
+
             <ImageButton
+                android:id="@+id/btnCloseAddPlan"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ic_close"
                 android:background="@drawable/bg_button"
                 android:backgroundTint="@color/white"
                 android:scaleType="centerInside"
-                android:id="@+id/btnCloseAddPlan"/>
+                android:src="@drawable/ic_close"
+                tools:ignore="SpeakableTextPresentCheck" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

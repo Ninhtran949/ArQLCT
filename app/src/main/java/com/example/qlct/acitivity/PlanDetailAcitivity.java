@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.qlct.R;
 import com.example.qlct.databinding.ActivityAddChiTieuBinding;
@@ -24,6 +26,7 @@ import com.google.firebase.ktx.Firebase;
 
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 
 public class PlanDetailAcitivity extends AppCompatActivity {
     ActivityPlanDetailAcitivityBinding binding;
@@ -32,6 +35,9 @@ public class PlanDetailAcitivity extends AppCompatActivity {
     private Calendar c;
     KeHoachSql keHoachSql;
     FirebaseAuth auth;
+
+    Date dateBatDau;
+    Date dateKetThuc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +55,8 @@ public class PlanDetailAcitivity extends AppCompatActivity {
     }
 
     private void initView() {
-        auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
+        auth = FirebaseAuth.getInstance(); //Khởi tạo đối tượng
+        FirebaseUser user = auth.getCurrentUser(); //Lấy đối tượng từ Firebaseauth
         binding.edtTenKeHoach.setText(mPlan.getTenKeHoach());
         binding.edtHanMuc.setText(String.valueOf(mPlan.getHanMuc()));
         binding.edtGhiChu.setText(mPlan.getGhiChu());
@@ -81,6 +87,16 @@ public class PlanDetailAcitivity extends AppCompatActivity {
         binding.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(isValidated()) {
+                    String tenKH = binding.edtTenKeHoach.getText().toString().trim();
+                    Double hanMuc = Double.parseDouble(binding.edtHanMuc.getText().toString().trim());
+                    String GhiChu = binding.edtGhiChu.getText().toString().trim();
+                    keHoachSql.updateKeHoach(new KeHoach(0, tenKH, dateBatDau, dateKetThuc, hanMuc, GhiChu, user.getEmail(), 0));
+                    Toast.makeText(PlanDetailAcitivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(PlanDetailAcitivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
                 setUneditableItem();
                 binding.llButton.setVisibility(View.GONE);
             }
@@ -106,6 +122,31 @@ public class PlanDetailAcitivity extends AppCompatActivity {
             }
         });
     }
+
+    private boolean isValidated() {
+        if(TextUtils.isEmpty(binding.edtTenKeHoach.getText().toString().trim())) {
+            Toast.makeText(this, "Nhập tên kế hoạch", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(TextUtils.isEmpty(binding.edtGhiChu.getText().toString().trim())) {
+            Toast.makeText(this, "Nhập ghi chú", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(TextUtils.isEmpty(binding.edtHanMuc.getText().toString().trim())) {
+            Toast.makeText(this, "Nhập hạn mức", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(TextUtils.isEmpty(binding.txtNgayBatDau.getText().toString().trim())) {
+            Toast.makeText(this, "Chọn ngày", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(TextUtils.isEmpty(binding.txtNgayKetThuc.getText().toString().trim())) {
+            Toast.makeText(this, "Chọn ngày", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
 
     private void setEditableItem() {
         binding.edtTenKeHoach.setEnabled(true);
@@ -147,4 +188,6 @@ public class PlanDetailAcitivity extends AppCompatActivity {
         binding.txtNgayBatDau.setClickable(false);
         binding.txtNgayKetThuc.setClickable(false);
     }
+
+
 }

@@ -98,7 +98,7 @@ public class AddChiTieuActivity extends AppCompatActivity {
 
 
                     } else {
-                        thuNhapSql.addThuNhap(new ThuNhap(1, soTien,user.getEmail(), date, ghiChu));
+                        thuNhapSql.addThuNhap(new ThuNhap(10, soTien,user.getEmail(), date, ghiChu));
                         try {
                             tongTien =  viTienSql.getViTien(user.getEmail()).get(0).getSoTien();
                             tongTien += soTien;

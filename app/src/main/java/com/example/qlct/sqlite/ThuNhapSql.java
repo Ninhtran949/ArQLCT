@@ -16,7 +16,7 @@ import java.util.Locale;
 
 public class ThuNhapSql extends SQLiteOpenHelper {
 
-
+    private Context context;
     public static final String TableName = "ThuNhap";
     //tên các cột trong bảng
     public static final String MaThuNhap = "MaThuNhap";
@@ -29,7 +29,7 @@ public class ThuNhapSql extends SQLiteOpenHelper {
     public ThuNhapSql( Context context, String name,
                        SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-
+        this.context=context;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -64,7 +64,7 @@ public class ThuNhapSql extends SQLiteOpenHelper {
         value.put(ThoiGianTN, dateFormat.format(thuNhap.getThoiGianTN()));
         value.put(GhiChu, thuNhap.getGhiChu());
         value.put(IsDeleted, 1);
-        db.insert(TableName, null, value);
+        long a=db.insert(TableName,null, value);
         db.close();
     }
     public void updateThuNhap( ThuNhap thuNhap )
