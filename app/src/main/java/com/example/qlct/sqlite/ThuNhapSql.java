@@ -138,7 +138,7 @@ public class ThuNhapSql extends SQLiteOpenHelper {
         return list;
     }
 
-    public double getMoneyInMonthTN(String maKH, int Month,int year) throws ParseException {
+    public double getMoneyInMonthTN(String MaKH, int Month,int year) throws ParseException {
         ArrayList<ThuNhap> list = new ArrayList<>();
         double tongTien = 0;
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE dd MM yyyy");
